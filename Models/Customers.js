@@ -1,4 +1,3 @@
-
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize('Express-api', 'postgres', '123456789', {
@@ -6,40 +5,40 @@ const sequelize = new Sequelize('Express-api', 'postgres', '123456789', {
     dialect:'postgres'
   });
 
-  const Books = sequelize.define('Book', {
+  const Customers = sequelize.define('Customer', {
     id: {
         type:DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
+        autoIncrement: true
     },
-    nom_livre: {
-        type:DataTypes.STRING,
-        allowNull:false,
-    },
-    auteur: {
+    nom: {
         type:DataTypes.STRING,
         allowNull: false,
     },
-    description: {
-      type:DataTypes.STRING,
-      allowNull: true
+    email: {
+        type:DataTypes.STRING,
+        allowNull:false,
     },
-    maison_edition: {
-      type:DataTypes.STRING,
-      allowNull: true
+    date_of_birth: {
+        type:DataTypes.STRING,
+        allowNull: true
     },
-    prix: {
+    tel: {
         type:DataTypes.INTEGER,
-        allowNull: false
+        allowNull:false
+    },
+    adresse: {
+        type:DataTypes.STRING,
+        allowNull:false
     }
 },{
-    timestamps: true,
+    timestamps:true,
     createdAt:"Date"
 });
 //(async () => {
   //  await sequelize.sync({ force: true });
     // Code here
   //})();
-  module.exports = {
-    Books
-  }
+module.exports ={
+    Customers
+}

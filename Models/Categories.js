@@ -1,4 +1,3 @@
-
 const { Sequelize, DataTypes } = require('sequelize');
 
 const sequelize = new Sequelize('Express-api', 'postgres', '123456789', {
@@ -6,40 +5,28 @@ const sequelize = new Sequelize('Express-api', 'postgres', '123456789', {
     dialect:'postgres'
   });
 
-  const Books = sequelize.define('Book', {
+  const Categories = sequelize.define('Categorie', {
     id: {
         type:DataTypes.INTEGER,
-        autoIncrement: true,
         primaryKey: true,
+        autoIncrement: true
     },
-    nom_livre: {
-        type:DataTypes.STRING,
-        allowNull:false,
-    },
-    auteur: {
+    nom_categorie: {
         type:DataTypes.STRING,
         allowNull: false,
     },
     description: {
-      type:DataTypes.STRING,
-      allowNull: true
+        type:DataTypes.STRING,
+        allowNull:false,
     },
-    maison_edition: {
-      type:DataTypes.STRING,
-      allowNull: true
-    },
-    prix: {
-        type:DataTypes.INTEGER,
-        allowNull: false
-    }
 },{
-    timestamps: true,
+    timestamps:true,
     createdAt:"Date"
 });
 //(async () => {
   //  await sequelize.sync({ force: true });
     // Code here
   //})();
-  module.exports = {
-    Books
-  }
+module.exports ={
+    Categories
+}
